@@ -24,6 +24,52 @@ import { ProductuploadComponent } from './productupload/productupload.component'
 import { RegisterComponent } from './register/register.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { SinglproductComponent } from './products/singlproduct/singlproduct.component';
+import { NotifierModule, NotifierOptions } from 'angular-notifier';
+
+/**
+ * Custom angular notifier options
+ */
+const customNotifierOptions: NotifierOptions = {
+  position: {
+    horizontal: {
+      position: 'left',
+      distance: 12
+    },
+    vertical: {
+      position: 'bottom',
+      distance: 12,
+      gap: 10
+    }
+  },
+  theme: 'material',
+  behaviour: {
+    autoHide: 3000,
+    onClick: 'hide',
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: true,
+    stacking: 4
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease'
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease'
+    },
+    overlap: 150
+  }
+};
+
 
 @NgModule({
   declarations: [
@@ -43,6 +89,7 @@ import { SinglproductComponent } from './products/singlproduct/singlproduct.comp
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    NotifierModule.withConfig(customNotifierOptions),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,

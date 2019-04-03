@@ -7,13 +7,12 @@ import { FileUpload } from '../models/upload';
   providedIn: 'root'
 })
 export class UploadServiceService {
-
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase) {}
 
   private basePath = '/cars';
 
   pushFileToStorage(
-    uploadType,
+    actionType,
     key,
     fileUpload: FileUpload,
     productDetais,
@@ -38,26 +37,28 @@ export class UploadServiceService {
         console.log(error);
       },
       () => {
-
         // success
-        fileUpload.FileUrl = uploadTask.snapshot.downloadURL;
-        fileUpload.fileName = fileUpload.file.name;
-        fileUpload.productName = productDetais.productName;
-        fileUpload.productPrice = productDetais.productPrice;
-        fileUpload.productColor = productDetais.productColor;
-        fileUpload.productSaleDate = productDetais.productSaleDate;
-        fileUpload.productInStock = productDetais.productInStock;
-        fileUpload.dated = new Date().toUTCString();
-        this.saveFileData(fileUpload, uploadType, key);
+        uploadTask.snapshot.ref.getDownloadURL().then(resp => {
+          fileUpload.FileUrl = resp;
+          fileUpload.fileName = fileUpload.file.name;
+          fileUpload.productName = productDetais.productName;
+          fileUpload.productPrice = productDetais.productPrice;
+          fileUpload.productColor = productDetais.productColor;
+          fileUpload.productSaleDate = productDetais.productSaleDate;
+          fileUpload.productInStock = productDetais.productInStock;
+          fileUpload.dated = new Date().toUTCString();
+          this.saveFileData(fileUpload, actionType, key);
+        });
       }
     );
   }
 
-  private saveFileData(fileUpload: FileUpload, uploadType: string, key: string) {
-    if (uploadType === 'updating') {
-      this.db.list(`${this.basePath}`)
-      .update(key, fileUpload)
-      .catch(error => console.log(error));
+  private saveFileData(fileUpload: FileUpload, actionType: any, key: any) {
+    if (actionType === 'updating') {
+      this.db
+        .list(`${this.basePath}`)
+        .update(key, fileUpload)
+        .catch(error => console.log(error));
     } else {
       this.db.list(`${this.basePath}`).push(fileUpload);
     }

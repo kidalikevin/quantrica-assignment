@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FileUpload, FileData } from 'src/app/models/upload';
 import { UploadServiceService } from 'src/app/services/upload-service.service';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import 'rxjs/add/operator/map';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-singlproduct',
@@ -10,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./singlproduct.component.css']
 })
 export class SinglproductComponent implements OnInit {
+  @ViewChild('inputFile') myInputVariable: ElementRef;
   selectedFiles: FileList;
 
   currentFileUpload: FileUpload;
@@ -18,13 +21,16 @@ export class SinglproductComponent implements OnInit {
 
   productDetails: FileData = new FileData();
   id: string;
+  private readonly notifier: NotifierService;
 
   constructor(
     private uploadService: UploadServiceService,
     private activateroute: ActivatedRoute,
     private route: Router,
+    notifierService: NotifierService,
     private fireApi: FirebaseService) {
     this.id = this.activateroute.snapshot.params.id;
+    this.notifier = notifierService;
   }
 
   ngOnInit() {
@@ -38,6 +44,7 @@ export class SinglproductComponent implements OnInit {
 
   update() {
     this.fireApi.updateProduct(this.productDetails.key, this.productDetails);
+    this.notifier.notify('success', 'Information updated successfully!');
   }
 
   updateImage() {
@@ -51,6 +58,10 @@ export class SinglproductComponent implements OnInit {
       this.productDetails,
       this.progress
     );
+
+    //   this.myInputVariable.nativeElement.value = '';
+    //   this.notifier.notify( 'success', 'Information updated successfully!' );
+
   }
 
   getData() {

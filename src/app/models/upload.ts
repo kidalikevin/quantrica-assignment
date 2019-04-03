@@ -1,5 +1,5 @@
 export class FileUpload {
-  key?: string;
+  key?: any;
   FileUrl: any;
   productName: string;
   productPrice: String;
@@ -18,16 +18,16 @@ export class FileUpload {
 }
 
 export class FileData {
-  key?: string;
-  FileUrl: any;
-  productName: string;
-  productPrice: String;
-  productColor: string;
-  productInStock: any;
-  productSaleDate: any;
-  fileName: string;
-  file: File;
-  progress: number;
-  dated: any;
-  createdAt: Date = new Date();
+  key?: any;
+  FileUrl?: any;
+  productName?: string;
+  productPrice?: String;
+  productColor?: string;
+  productInStock?: any;
+  productSaleDate?: any;
+  fileName?: string;
+  file?: File;
+  progress?: number;
+  dated?: any;
+  createdAt?: Date = new Date();
 }

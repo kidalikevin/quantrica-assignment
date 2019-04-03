@@ -10,16 +10,6 @@
         <div class="divider"></div>
       </div>
 
-      <div class="form-group">
-        <div *ngIf="currentFileUpload" class="progress" style="width:100%">
-          <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
-            attr.aria-valuenow="{{ progress.percentage }}" aria-valuemin="0" aria-valuemax="100"
-            [ngStyle]="{ width: progress.percentage + '%' }">
-            {{ progress.percentage }}%
-          </div>
-        </div>
-      </div>
-
       <form #updateProduct="ngForm">
         <div class="form-group">
           <label class="labels">Car Name</label><br />
@@ -60,11 +50,20 @@
     <div class="single-product-items">
       <div class="car-placeholder">
         <div class="form-group">
+          <div *ngIf="currentFileUpload" class="progress" style="width:100%">
+            <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+              attr.aria-valuenow="{{ progress.percentage }}" aria-valuemin="0" aria-valuemax="100"
+              [ngStyle]="{ width: progress.percentage + '%' }">
+              {{ progress.percentage }}%
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
           <label class="labels">Change product image</label><br />
-          <input type="file" class="files" (change)="selectFile($event)" required placeholder="select file"
+          <input type="file" class="files" (change)="selectFile($event)" placeholder="select file"
             name="files" />
         </div>
-        <img [src]="productDetails.FileUrl" class="product-img" alt="product image">
+        <img *ngIf="productDetails" [src]="productDetails.FileUrl" class="product-img" alt="product image">
       </div>
       <div class="call-to-action-delete">
         <button (click)="deleteProduct(productDetails.key, productDetails.fileName)" class="btn-danger btn">

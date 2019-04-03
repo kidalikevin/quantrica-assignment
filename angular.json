@@ -23,9 +23,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/ngx-datetime-picker/ngx-datetime-picker.css",
-              "node_modules/ng-snotify/styles/material.css"
+              "src/styles.css"
             ],
             "scripts": []
           },
