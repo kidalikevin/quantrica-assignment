@@ -1,0 +1,69 @@
+.products-container {
+  display: flex;
+  padding: 1rem;
+  margin: auto;
+  width: 80%;
+  cursor: pointer;
+  margin-top: 5%;
+}
+
+.products-item {
+  border: thin solid #e3e3e338;
+  height: auto;
+}
+
+.products-item:nth-child(1) {
+  flex-basis: 50%;
+}
+
+.products-item:nth-child(2) {
+  flex-basis: 50%;
+  padding: 2rem;
+}
+
+.product-img {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+table tr td {
+  padding: 1rem;
+  font-size: .8rem;
+  border: thin solid #e3e3e386;
+}
+
+.call-to-action-button {
+  border: thin solid #e3e3e39d;
+  padding: .3rem;
+  flex: auto;
+  border-radius: 2px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.call-to-action-button-text {
+  font-size: .7rem;
+}
+
+.call-to-action-container {
+  display: flex;
+  width: 50%;
+  margin-top: 10%;
+}
+
+.active-to-action {
+  background: #3F3F3F;
+  color: #fff;
+}
+
+.product-car-labels {
+  color: #2798d4;
+}
+
+.product-name {
+  font-size: 1.3rem;
+  color: #2798d4;
+}

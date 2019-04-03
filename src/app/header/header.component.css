@@ -1,0 +1,22 @@
+.header-container {
+  width: 100%;
+  min-height: 800px;
+  background: url('/assets/images/Luxury-Car-PNG-Picture.png') no-repeat center #3F3F3F;
+}
+
+.title-cover {
+  padding: 1rem;
+  margin-left: 10%;
+}
+
+.header-title {
+  color: #fff;
+  margin-top: 15%;
+  margin-bottom: 0;
+  font-size: 4rem;
+}
+
+.header-tagline {
+  font-size: 2rem;
+  color: #ffffff54;
+}

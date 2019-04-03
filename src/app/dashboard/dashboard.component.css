@@ -1,0 +1,34 @@
+.dashboard-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ECEFF1;
+  padding-top: 5%;
+}
+
+.dashboard-inner-wrapper {
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
+
+.dashboard-partition {
+  flex: 1;
+  border: thin solid #e3e3e3;
+  padding: 2rem;
+}
+
+.dashboard-partition:first-child {
+  flex-basis: 25%;
+}
+
+.dashboard-partition:last-child {
+  flex-basis: 75%;
+}
+
+app-products /deep/ .products-container {
+  background: #fff;
+}
+
+app-products /deep/ .products-container .call-to-action-container {
+  width: 100%;
+}

@@ -1,0 +1,22 @@
+.navigation-menu-container {
+  width: 100%;
+  background: #3F3F3F;
+  height: 60px;
+  position: fixed;
+}
+
+.navigation-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation-menu-item {
+  flex: 1;
+  color: #fff;
+  border: thin solid #99999910;
+  text-align: center;
+  font-size: .8rem;
+  font-weight: bold;
+  line-height: 60px;
+}
