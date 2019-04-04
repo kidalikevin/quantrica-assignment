@@ -67,3 +67,20 @@
   font-size: 1.3rem;
   color: #2798d4;
 }
+
+.dashboard-container-wrapper {
+  width: 80%;
+  margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard-container-wrapper {
+    width: 100%;
+  }
+  .dashboard-inner-wrapper {
+    display: block;
+  }
+  .dashboard-partition {
+    /*width: 100%;*/
+  }
+}

@@ -1,3 +1,5 @@
+<img src="assets/images/ajax-loader.gif" class="loader" *ngIf="loader">
+<!--End of loader-->
 <div class="products-container" *ngFor="let product of products" (click)="viewSingleProduct(product.key)">
   <div class="products-item">
     <h1 class="product-name" align="center">{{product.productName}}</h1>

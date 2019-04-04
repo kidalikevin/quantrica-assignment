@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 @import "~angular-notifier/styles.css";
 
 body, html {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   margin: 0;
 }

@@ -3,6 +3,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { FileUpload } from '../models/upload';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class FirebaseService {
   operationRefProducts: AngularFireList<FileUpload> = null;
   userID: string;
 
-  constructor(public af: AngularFireAuth, private db: AngularFireDatabase) {
+  constructor(public af: AngularFireAuth, private db: AngularFireDatabase, private route: Router) {
     this.operationRefProducts = db.list(this.dbPathProducts);
 
     this.af.authState.subscribe(auth => {
@@ -50,7 +51,8 @@ export class FirebaseService {
     return new Promise((resolve, reject) => {
       if (firebase.auth().currentUser) {
         this.af.auth.signOut();
-        resolve();
+        this.route.navigate(['/']);
+        window.location.reload();
       } else {
         reject();
       }

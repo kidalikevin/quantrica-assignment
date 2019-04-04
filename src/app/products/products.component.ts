@@ -10,9 +10,11 @@ import { Router } from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
   products: FileUpload[];
+  loader = false;
   constructor(private fireApi: FirebaseService, private route: Router) {}
 
   ngOnInit() {
+    this.loader = true;
     this.getData();
   }
 
@@ -24,6 +26,7 @@ export class ProductsComponent implements OnInit {
         return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
       })
       .subscribe(resp => {
+        this.loader = false;
         this.products = resp;
       });
   }

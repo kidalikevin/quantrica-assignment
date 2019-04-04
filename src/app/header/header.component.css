@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light');
 .header-container {
   width: 100%;
-  min-height: 800px;
-  background: url('/assets/images/Luxury-Car-PNG-Picture.png') no-repeat center #3F3F3F;
+  min-height: 400px;
+  background: #3F3F3F;
 }
 
 .title-cover {
@@ -11,12 +12,26 @@
 
 .header-title {
   color: #fff;
-  margin-top: 15%;
+  margin-top: 10%;
   margin-bottom: 0;
   font-size: 4rem;
 }
 
 .header-tagline {
   font-size: 2rem;
+  font-family: 'Shadows Into Light', cursive;
   color: #ffffff54;
+}
+
+@media screen and (max-width: 768px) {
+  .header-container {
+    min-height: 250px;
+  }
+  .header-title {
+    font-size: 3rem;
+    margin-top: 25%;
+  }
+  .header-tagline {
+    font-size: 1rem;
+  }
 }

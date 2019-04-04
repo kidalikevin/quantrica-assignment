@@ -1,8 +1,11 @@
 <div class="navigation-menu-container">
   <div class="navigation-menu">
-    <div class="navigation-menu-item">HOME</div>
-    <div class="navigation-menu-item">CARS</div>
-    <div class="navigation-menu-item">LOGIN</div>
-    <div class="navigation-menu-item">SIGN UP</div>
+    <div *ngIf="!loggedIn" (click)="home()" class="navigation-menu-item">HOME</div>
+    <div *ngIf="loggedIn" (click)="dashboard()" class="navigation-menu-item">Dashboard</div>
+    <div (click)="home()" class="navigation-menu-item">CARS</div>
+    <div *ngIf="loggedIn" class="navigation-menu-item">SETTINGS</div>
+    <div *ngIf="loggedIn" (click)="logout()" class="navigation-menu-item">LOGOUT</div>
+    <div *ngIf="!loggedIn" (click)="signIn()" class="navigation-menu-item">LOGIN</div>
+    <div *ngIf="!loggedIn" (click)="signUp()" class="navigation-menu-item">SIGN UP</div>
   </div>
 </div>

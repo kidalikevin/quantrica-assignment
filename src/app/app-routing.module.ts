@@ -8,9 +8,9 @@ import { RegisterComponent } from './register/register.component';
 import { SinglproductComponent } from './products/singlproduct/singlproduct.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: '', component: HomeComponent, data: { animation: 'home' } },
+  { path: 'login', component: LoginComponent, data: { animation: 'login' } },
+  { path: 'register', component: RegisterComponent, data: { animation: 'register' } },
   { path: 'dashboard', component: DashboardComponent, resolve: { data: UserResolverService}, data: { animation: 'dashboard' } },
   { path: 'product/:id', component: SinglproductComponent, resolve: { data: UserResolverService}, data: { animation: 'singleproduct' } }
 ];

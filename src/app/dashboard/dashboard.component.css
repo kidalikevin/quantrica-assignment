@@ -1,13 +1,12 @@
 .dashboard-container {
   width: 100%;
   min-height: 100vh;
-  background-color: #ECEFF1;
   padding-top: 5%;
 }
 
 .dashboard-inner-wrapper {
   display: flex;
-  width: 80%;
+  width: 100%;
   margin: auto;
 }
 
@@ -31,4 +30,21 @@ app-products /deep/ .products-container {
 
 app-products /deep/ .products-container .call-to-action-container {
   width: 100%;
+}
+
+.dashboard-container-wrapper {
+  width: 80%;
+  margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard-container-wrapper {
+    width: 100%;
+  }
+  .dashboard-inner-wrapper {
+    display: block;
+  }
+  .dashboard-partition {
+    /*width: 100%;*/
+  }
 }

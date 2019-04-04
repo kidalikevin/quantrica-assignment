@@ -4,7 +4,6 @@
   margin: auto;
   width: 80%;
   cursor: pointer;
-  margin-top: 5%;
 }
 
 .products-item {
@@ -66,4 +65,19 @@ table tr td {
 .product-name {
   font-size: 1.3rem;
   color: #2798d4;
+}
+
+.loader {
+  margin-left: 45%;
+  margin-top: 5%;
+}
+
+@media screen and (max-width: 768px) {
+  .products-container {
+    display: block;
+    width: 90%;
+  }
+  .call-to-action-container {
+    width: 100%;
+  }
 }
