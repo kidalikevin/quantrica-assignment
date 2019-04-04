@@ -80,7 +80,7 @@
   .dashboard-inner-wrapper {
     display: block;
   }
-  .dashboard-partition {
-    /*width: 100%;*/
+  .single-product-inner-wrap {
+    display: block;
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from '../services/firebase.service';
-import { FileUpload } from '../models/upload';
+import { FirebaseService } from '../../services/firebase.service';
+import { FileUpload } from '../../models/upload';
 import { Router } from '@angular/router';
 
 @Component({
