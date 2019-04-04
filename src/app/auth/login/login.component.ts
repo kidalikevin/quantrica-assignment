@@ -13,19 +13,26 @@ export class LoginComponent implements OnInit {
     password: null
   };
 
+btn = 'LOGIN';
+
   error: any;
 
-  constructor(public db: FirebaseService, public Router: Router) {}
+  constructor(public db: FirebaseService, public router: Router) {}
 
   ngOnInit() {}
 
   login() {
+    this.btn = 'PROCESSING ..';
     this.db.signIn(this.formData).then(
       res => {
-        this.Router.navigate(['/login']);
+        this.btn = 'LOGIN FAILED!';
+        setTimeout(() => {
+          this.btn = 'LOGIN';
+        }, 4000);
+        this.router.navigate(['/login']);
       },
       err => {
-        this.Router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard']);
       }
     );
   }

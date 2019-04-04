@@ -12,7 +12,7 @@ import { NotifierService } from 'angular-notifier';
   styleUrls: ['./singlproduct.component.css']
 })
 export class SinglproductComponent implements OnInit {
-  @ViewChild('inputFile') myInputVariable: ElementRef;
+
   selectedFiles: FileList;
 
   currentFileUpload: FileUpload;
@@ -58,10 +58,6 @@ export class SinglproductComponent implements OnInit {
       this.productDetails,
       this.progress
     );
-
-    //   this.myInputVariable.nativeElement.value = '';
-    //   this.notifier.notify( 'success', 'Information updated successfully!' );
-
   }
 
   getData() {
